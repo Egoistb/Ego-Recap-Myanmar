@@ -1,0 +1,1091 @@
+
+
+<!DOCTYPE html>
+
+<html lang="my">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="theme-color" content="#101116">
+
+<title>Ego Recap Myanmar</title>
+
+<style>
+
+:root {
+
+  --bg:#101116; --panel:#1b1c25; --line:#343542;
+
+  --text:#f5f5f7; --muted:#b9bac7; --accent:#a78bfa;
+
+}
+
+* { box-sizing:border-box; }
+
+body {
+
+  margin:0; background:var(--bg); color:var(--text);
+
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+
+  line-height:1.6;
+
+}
+
+header {
+
+  padding:18px 16px; background:#191a22;
+
+  border-bottom:1px solid var(--line);
+
+  position:sticky; top:0; z-index:5;
+
+}
+
+.header-row {
+
+  max-width:900px; margin:auto; display:flex;
+
+  justify-content:space-between; align-items:center; gap:10px;
+
+}
+
+.logo { color:var(--accent); font-size:20px; font-weight:800; }
+
+main { max-width:900px; padding:20px 14px 50px; margin:auto; }
+
+h1 { font-size:27px; line-height:1.4; }
+
+h2 { font-size:19px; margin:0 0 12px; }
+
+p { color:var(--muted); }
+
+.panel {
+
+  background:var(--panel); border:1px solid var(--line);
+
+  border-radius:16px; padding:17px; margin:16px 0;
+
+}
+
+label { display:block; margin:12px 0 6px; font-size:14px; }
+
+input,textarea,select {
+
+  display:block; width:100%; padding:12px;
+
+  background:#111219; border:1px solid #454654;
+
+  color:white; border-radius:9px; font:inherit;
+
+  font-size:16px; min-width:0;
+
+}
+
+textarea { resize:vertical; min-height:110px; }
+
+button {
+
+  padding:12px 14px; background:#8b5cf6; color:white;
+
+  border:0; border-radius:9px; font-size:15px;
+
+  font-weight:700; cursor:pointer;
+
+}
+
+button.secondary { background:#30313f; border:1px solid #494a5a; }
+
+button.danger { background:#783b49; }
+
+button:disabled { opacity:.45; }
+
+.full { width:100%; margin-top:12px; }
+
+.row { display:flex; gap:9px; align-items:center; flex-wrap:wrap; }
+
+.row > * { flex:1; }
+
+.small { font-size:12px; color:#a9a9b8; }
+
+.status {
+
+  margin-top:12px; padding:11px; border-radius:9px;
+
+  background:#111219; color:#d5c7ff; overflow-wrap:anywhere;
+
+}
+
+video { width:100%; max-height:400px; background:black; border-radius:10px; margin-top:12px; }
+
+.subtitle-preview {
+
+  background:#050505; border:1px solid #454654; border-radius:10px;
+
+  min-height:100px; padding:20px 12px; display:flex;
+
+  justify-content:center; align-items:end; text-align:center;
+
+}
+
+.subtitle-preview span {
+
+  background:rgba(0,0,0,.8); color:white; padding:5px 9px;
+
+  border-radius:4px; white-space:pre-wrap; overflow-wrap:anywhere;
+
+}
+
+.segment { display:flex; gap:7px; margin:12px 0; }
+
+.segment button { flex:1; }
+
+.segment button.active { outline:2px solid #c4b5fd; }
+
+.sub-item {
+
+  padding:13px; border:1px solid var(--line);
+
+  border-radius:10px; margin:10px 0; background:#15161e;
+
+}
+
+.sub-item.active { border-color:var(--accent); }
+
+.sub-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+
+.sub-head strong { flex:1; }
+
+.sub-head button { padding:7px 10px; }
+
+.sub-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+
+.sub-grid label { margin-top:4px; }
+
+.sub-actions { display:flex; gap:8px; margin-top:9px; }
+
+.sub-actions button { flex:1; }
+
+.badge { color:#d5c7ff; font-size:12px; }
+
+footer { text-align:center; padding:25px; color:#858697; font-size:12px; }
+
+@media(max-width:480px) {
+
+  .logo { font-size:17px; }
+
+  .header-row button { padding:9px; font-size:13px; }
+
+  h1 { font-size:24px; }
+
+  .panel { padding:14px; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-row">
+
+    <div class="logo">🎬 Ego Recap Myanmar</div>
+
+    <button id="langBtn" class="secondary" type="button">🇬🇧 English</button>
+
+  </div>
+
+</header>
+
+<main>
+
+  <h1 id="heroTitle">သင့်ရဲ့ Movie Recap ကို ဖန်တီးပါ</h1>
+
+  <p id="heroDesc">ဗီဒီယိုထည့်ပါ၊ ဇာတ်ညွှန်းပြင်ပါ၊ စာတန်းထိုးဖိုင်ထုတ်ပါ။</p>
+
+  <section class="panel">
+
+    <h2 data-i18n="videoTitle">🎞️ ၁။ ဗီဒီယိုထည့်ရန်</h2>
+
+    <label for="videoFile" data-i18n="fileLabel">ဖုန်းထဲက ဗီဒီယိုဖိုင်</label>
+
+    <input id="videoFile" type="file" accept="video/*">
+
+    <div id="videoArea" hidden>
+
+      <video id="videoPlayer" controls playsinline></video>
+
+      <p id="videoInfo" class="small"></p>
+
+    </div>
+
+    <label for="youtubeUrl" data-i18n="youtubeLabel">YouTube လင့်ခ်</label>
+
+    <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=...">
+
+    <button id="checkVideo" class="full" data-i18n="checkBtn">ဗီဒီယိုစစ်ဆေးရန်</button>
+
+    <div id="status" class="status" aria-live="polite">စတင်ရန် ဗီဒီယိုဖိုင်ရွေးပါ။</div>
+
+    <p class="small" data-i18n="videoNote">မှတ်ချက် - ဗီဒီယိုကို AI ဖြင့် ခွဲခြမ်းစိတ်ဖြာခြင်း မချိတ်ဆက်ရသေးပါ။</p>
+
+  </section>
+
+  <section class="panel">
+
+    <h2 data-i18n="scriptTitle">✍️ ၂။ ဇာတ်ညွှန်းပြင်ဆင်ရန်</h2>
+
+    <label for="scriptText" data-i18n="scriptLabel">Recap ဇာတ်ညွှန်း</label>
+
+    <textarea id="scriptText" placeholder="ဒီနေရာမှာ ဇာတ်ညွှန်းရေးပါ..."></textarea>
+
+    <div class="row">
+
+      <button id="saveScript" type="button" data-i18n="saveTxt">TXT ဖိုင်သိမ်းရန်</button>
+
+      <button id="clearScript" type="button" class="secondary" data-i18n="clear">ရှင်းရန်</button>
+
+    </div>
+
+  </section>
+
+  <section class="panel">
+
+    <h2 data-i18n="subtitleTitle">💬 ၃။ စာတန်းထိုး Editor</h2>
+
+    <p data-i18n="subtitleDesc">စာတန်းထိုးစာသားနဲ့ အချိန်ကို ပြင်နိုင်ပါတယ်။</p>
+
+    <div class="segment">
+
+      <button id="subMy" class="active" type="button">🇲🇲 မြန်မာစာ</button>
+
+      <button id="subEn" class="secondary" type="button">🇬🇧 English</button>
+
+    </div>
+
+    <div class="subtitle-preview">
+
+      <span id="subtitlePreview">သင့်ရဲ့ စာတန်းထိုးကို ဒီမှာ ကြည့်နိုင်ပါတယ်။</span>
+
+    </div>
+
+    <label for="subText" data-i18n="subTextLabel">စာတန်းထိုးစာသား</label>
+
+    <textarea id="subText" placeholder="စာတန်းထိုးရေးပါ..."></textarea>
+
+    <div class="sub-grid">
+
+      <div>
+
+        <label for="subStart" data-i18n="startTime">စတင်ချိန် (စက္ကန့်)</label>
+
+        <input id="subStart" type="number" min="0" step="0.1" value="0">
+
+      </div>
+
+      <div>
+
+        <label for="subEnd" data-i18n="endTime">ပြီးဆုံးချိန် (စက္ကန့်)</label>
+
+        <input id="subEnd" type="number" min="0.1" step="0.1" value="4">
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <button id="addSubtitle" type="button" data-i18n="addSub">စာတန်းထည့်ရန်</button>
+
+      <button id="updateSubtitle" type="button" class="secondary" data-i18n="updateSub">ရွေးထားတာ ပြင်ရန်</button>
+
+    </div>
+
+    <div id="subtitleList"></div>
+
+    <div class="row">
+
+      <button id="newSubtitle" class="secondary" type="button" data-i18n="newSub">အသစ်ရေးရန်</button>
+
+      <button id="exportSrt" type="button" data-i18n="exportSrt">SRT ဖိုင်ထုတ်ရန်</button>
+
+    </div>
+
+    <p class="small" data-i18n="srtNote">SRT ဖိုင်ကို ဗီဒီယိုနဲ့ သီးခြားသိမ်းနိုင်ပါတယ်။ MP4 ထဲ အလိုအလျောက်ပေါင်းထည့်ခြင်း မပါသေးပါ။</p>
+
+  </section>
+
+  <section class="panel">
+
+    <h2 data-i18n="nextTitle">🚀 နောက်ထပ်တည်ဆောက်မည့် Features</h2>
+
+    <p data-i18n="feature1">🤖 AI ဖြင့် ဇာတ်လမ်းအကျဉ်းဖန်တီးခြင်း</p>
+
+    <p data-i18n="feature2">🗣️ မြန်မာ / English အသံဖန်တီးခြင်း</p>
+
+    <p data-i18n="feature3">🎬 စာတန်းထိုးနဲ့ MP4 ထုတ်ခြင်း</p>
+
+    <p class="small" data-i18n="futureNote">ဒီ Features တွေအတွက် AI ဝန်ဆောင်မှုနဲ့ ဗီဒီယိုလုပ်ဆောင်ရေးစနစ်ကို ချိတ်ဆက်ဖို့ လိုအပ်ပါတယ်။</p>
+
+  </section>
+
+</main>
+
+<footer>© Ego Recap Myanmar · Personal Project</footer>
+
+<script>
+
+const $ = id => document.getElementById(id);
+
+let lang = "my";
+
+let subtitleLang = "my";
+
+let subtitles = [];
+
+let selectedId = null;
+
+let nextId = 1;
+
+let videoObjectUrl = null;
+
+const translations = {
+
+  my: {
+
+    heroTitle:"သင့်ရဲ့ Movie Recap ကို ဖန်တီးပါ",
+
+    heroDesc:"ဗီဒီယိုထည့်ပါ၊ ဇာတ်ညွှန်းပြင်ပါ၊ စာတန်းထိုးဖိုင်ထုတ်ပါ။",
+
+    videoTitle:"🎞️ ၁။ ဗီဒီယိုထည့်ရန်",
+
+    fileLabel:"ဖုန်းထဲက ဗီဒီယိုဖိုင်",
+
+    youtubeLabel:"YouTube လင့်ခ်",
+
+    checkBtn:"ဗီဒီယိုစစ်ဆေးရန်",
+
+    videoNote:"မှတ်ချက် - ဗီဒီယိုကို AI ဖြင့် ခွဲခြမ်းစိတ်ဖြာခြင်း မချိတ်ဆက်ရသေးပါ။",
+
+    scriptTitle:"✍️ ၂။ ဇာတ်ညွှန်းပြင်ဆင်ရန်",
+
+    scriptLabel:"Recap ဇာတ်ညွှန်း",
+
+    saveTxt:"TXT ဖိုင်သိမ်းရန်", clear:"ရှင်းရန်",
+
+    subtitleTitle:"💬 ၃။ စာတန်းထိုး Editor",
+
+    subtitleDesc:"စာတန်းထိုးစာသားနဲ့ အချိန်ကို ပြင်နိုင်ပါတယ်။",
+
+    subTextLabel:"စာတန်းထိုးစာသား",
+
+    startTime:"စတင်ချိန် (စက္ကန့်)",
+
+    endTime:"ပြီးဆုံးချိန် (စက္ကန့်)",
+
+    addSub:"စာတန်းထည့်ရန်", updateSub:"ရွေးထားတာ ပြင်ရန်",
+
+    newSub:"အသစ်ရေးရန်", exportSrt:"SRT ဖိုင်ထုတ်ရန်",
+
+    srtNote:"SRT ဖိုင်ကို ဗီဒီယိုနဲ့ သီးခြားသိမ်းနိုင်ပါတယ်။ MP4 ထဲ အလိုအလျောက်ပေါင်းထည့်ခြင်း မပါသေးပါ။",
+
+    nextTitle:"🚀 နောက်ထပ်တည်ဆောက်မည့် Features",
+
+    feature1:"🤖 AI ဖြင့် ဇာတ်လမ်းအကျဉ်းဖန်တီးခြင်း",
+
+    feature2:"🗣️ မြန်မာ / English အသံဖန်တီးခြင်း",
+
+    feature3:"🎬 စာတန်းထိုးနဲ့ MP4 ထုတ်ခြင်း",
+
+    futureNote:"ဒီ Features တွေအတွက် AI ဝန်ဆောင်မှုနဲ့ ဗီဒီယိုလုပ်ဆောင်ရေးစနစ်ကို ချိတ်ဆက်ဖို့ လိုအပ်ပါတယ်။",
+
+    empty:"စတင်ရန် ဗီဒီယိုဖိုင်ရွေးပါ။",
+
+    noVideo:"ဗီဒီယိုဖိုင်ရွေးပါ သို့မဟုတ် YouTube လင့်ခ်ထည့်ပါ။",
+
+    badUrl:"မှန်ကန်သော HTTPS YouTube လင့်ခ်ကို ထည့်ပါ။",
+
+    urlSaved:"YouTube လင့်ခ်ပုံစံ မှန်ကန်ပါတယ်။ AI ခွဲခြမ်းစိတ်ဖြာမှု မချိတ်ဆက်ရသေးပါ။",
+
+    fileSelected:"ဗီဒီယိုဖိုင်ကို ရွေးချယ်ပြီးပါပြီ။ AI ခွဲခြမ်းစိတ်ဖြာမှု မချိတ်ဆက်ရသေးပါ။",
+
+    noScript:"သိမ်းရန် ဇာတ်ညွှန်းအရင်ရေးပါ။",
+
+    noSub:"စာတန်းထိုးစာသား အရင်ထည့်ပါ။",
+
+    badTime:"အချိန်ကို မှန်ကန်စွာထည့်ပါ။ ပြီးဆုံးချိန်သည် စတင်ချိန်ထက် ကြီးရပါမယ်။",
+
+    added:"စာတန်းထိုး ထည့်ပြီးပါပြီ။",
+
+    updated:"စာတန်းထိုး ပြင်ပြီးပါပြီ။",
+
+    deleted:"စာတန်းထိုး ဖျက်ပြီးပါပြီ။",
+
+    noSelection:"အရင်ဆုံး ပြင်ချင်တဲ့စာတန်းကို ရွေးပါ။",
+
+    subPlaceholder:"စာတန်းထိုးရေးပါ...",
+
+    previewPlaceholder:"သင့်ရဲ့ စာတန်းထိုးကို ဒီမှာ ကြည့်နိုင်ပါတယ်။",
+
+    start:"စ",
+
+    end:"ဆုံး",
+
+    edit:"ပြင်ရန်",
+
+    delete:"ဖျက်ရန်",
+
+    file:"ဖိုင်",
+
+    seconds:"စက္ကန့်",
+
+    emptyList:"စာတန်းထိုး မရှိသေးပါ။",
+
+    languageButton:"🇬🇧 English"
+
+  },
+
+  en: {
+
+    heroTitle:"Create Your Movie Recap",
+
+    heroDesc:"Add a video, edit your script, and export subtitles.",
+
+    videoTitle:"🎞️ 1. Add a Video",
+
+    fileLabel:"Video file from your device",
+
+    youtubeLabel:"YouTube link",
+
+    checkBtn:"Check Video",
+
+    videoNote:"Note: AI video analysis is not connected yet.",
+
+    scriptTitle:"✍️ 2. Edit Your Script",
+
+    scriptLabel:"Recap script",
+
+    saveTxt:"Save TXT File", clear:"Clear",
+
+    subtitleTitle:"💬 3. Subtitle Editor",
+
+    subtitleDesc:"Edit subtitle text and timing.",
+
+    subTextLabel:"Subtitle text",
+
+    startTime:"Start time (seconds)",
+
+    endTime:"End time (seconds)",
+
+    addSub:"Add Subtitle", updateSub:"Update Selected",
+
+    newSub:"New Subtitle", exportSrt:"Export SRT",
+
+    srtNote:"The SRT file is exported separately. Automatic subtitle embedding into MP4 is not included yet.",
+
+    nextTitle:"🚀 Features to Build Next",
+
+    feature1:"🤖 AI-generated story recaps",
+
+    feature2:"🗣️ Myanmar / English voice generation",
+
+    feature3:"🎬 Export MP4 with subtitles",
+
+    futureNote:"These features require connecting AI services and a video processing system.",
+
+    empty:"Choose a video file to begin.",
+
+    noVideo:"Choose a video file or enter a YouTube link.",
+
+    badUrl:"Please enter a valid HTTPS YouTube URL.",
+
+    urlSaved:"YouTube URL format looks valid. AI analysis is not connected yet.",
+
+    fileSelected:"Video selected. AI analysis is not connected yet.",
+
+    noScript:"Enter a script before saving.",
+
+    noSub:"Enter subtitle text first.",
+
+    badTime:"Enter valid times. End time must be greater than start time.",
+
+    added:"Subtitle added.",
+
+    updated:"Subtitle updated.",
+
+    deleted:"Subtitle deleted.",
+
+    noSelection:"Select a subtitle to edit first.",
+
+    subPlaceholder:"Enter subtitle text...",
+
+    previewPlaceholder:"Your subtitle preview appears here.",
+
+    start:"Start",
+
+    end:"End",
+
+    edit:"Edit",
+
+    delete:"Delete",
+
+    file:"File",
+
+    seconds:"seconds",
+
+    emptyList:"No subtitles yet.",
+
+    languageButton:"🇲🇲 မြန်မာ"
+
+  }
+
+};
+
+function t(key) {
+
+  return translations[lang][key] || key;
+
+}
+
+function setStatus(message) {
+
+  $("status").textContent = message;
+
+}
+
+function applyLanguage() {
+
+  document.documentElement.lang = lang === "my" ? "my" : "en";
+
+  $("langBtn").textContent = t("languageButton");
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+
+    el.textContent = t(el.dataset.i18n);
+
+  });
+
+  $("heroTitle").textContent = t("heroTitle");
+
+  $("heroDesc").textContent = t("heroDesc");
+
+  $("scriptText").placeholder = lang === "my"
+
+    ? "ဒီနေရာမှာ ဇာတ်ညွှန်းရေးပါ..."
+
+    : "Write your recap script here...";
+
+  $("subText").placeholder = t("subPlaceholder");
+
+  renderSubtitles();
+
+  updatePreview();
+
+}
+
+$("langBtn").addEventListener("click", () => {
+
+  lang = lang === "my" ? "en" : "my";
+
+  applyLanguage();
+
+});
+
+$("videoFile").addEventListener("change", () => {
+
+  const file = $("videoFile").files[0];
+
+  if (videoObjectUrl) URL.revokeObjectURL(videoObjectUrl);
+
+  videoObjectUrl = null;
+
+  if (!file) {
+
+    $("videoArea").hidden = true;
+
+    $("videoPlayer").removeAttribute("src");
+
+    return;
+
+  }
+
+  if (!file.type.startsWith("video/")) {
+
+    setStatus(lang === "my" ? "ဗီဒီယိုဖိုင်ကိုသာ ရွေးပါ။" : "Please choose a video file.");
+
+    $("videoFile").value = "";
+
+    return;
+
+  }
+
+  videoObjectUrl = URL.createObjectURL(file);
+
+  $("videoPlayer").src = videoObjectUrl;
+
+  $("videoArea").hidden = false;
+
+  $("videoInfo").textContent =
+
+    file.name + " · " + (file.size / 1048576).toFixed(1) + " MB";
+
+  setStatus(t("fileSelected"));
+
+});
+
+$("checkVideo").addEventListener("click", () => {
+
+  const file = $("videoFile").files[0];
+
+  const url = $("youtubeUrl").value.trim();
+
+  if (file) {
+
+    setStatus(t("fileSelected"));
+
+    return;
+
+  }
+
+  if (!url) {
+
+    setStatus(t("noVideo"));
+
+    return;
+
+  }
+
+  try {
+
+    const u = new URL(url);
+
+    const hosts = [
+
+      "youtube.com", "www.youtube.com", "m.youtube.com",
+
+      "youtu.be", "www.youtube-nocookie.com"
+
+    ];
+
+    if (u.protocol !== "https:" || !hosts.includes(u.hostname)) {
+
+      setStatus(t("badUrl"));
+
+      return;
+
+    }
+
+    setStatus(t("urlSaved"));
+
+  } catch {
+
+    setStatus(t("badUrl"));
+
+  }
+
+});
+
+$("saveScript").addEventListener("click", () => {
+
+  const value = $("scriptText").value.trim();
+
+  if (!value) {
+
+    setStatus(t("noScript"));
+
+    return;
+
+  }
+
+  downloadFile(
+
+    "\uFEFF" + value,
+
+    "ego-recap-script.txt",
+
+    "text/plain;charset=utf-8"
+
+  );
+
+});
+
+$("clearScript").addEventListener("click", () => {
+
+  $("scriptText").value = "";
+
+});
+
+function downloadFile(content, filename, mime) {
+
+  const blob = new Blob([content], {type:mime});
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+
+  a.href = url;
+
+  a.download = filename;
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  a.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+
+}
+
+function validTimes(start, end) {
+
+  return Number.isFinite(start) &&
+
+    Number.isFinite(end) &&
+
+    start >= 0 && end > start;
+
+}
+
+function currentSubtitleFromForm() {
+
+  const text = $("subText").value.trim();
+
+  const start = Number($("subStart").value);
+
+  const end = Number($("subEnd").value);
+
+  if (!text) {
+
+    setStatus(t("noSub"));
+
+    return null;
+
+  }
+
+  if (!validTimes(start, end)) {
+
+    setStatus(t("badTime"));
+
+    return null;
+
+  }
+
+  return {text, start, end, language:subtitleLang};
+
+}
+
+function updatePreview() {
+
+  const text = $("subText").value.trim();
+
+  $("subtitlePreview").textContent = text || t("previewPlaceholder");
+
+}
+
+$("subText").addEventListener("input", updatePreview);
+
+function resetSubtitleForm() {
+
+  selectedId = null;
+
+  $("subText").value = "";
+
+  $("subStart").value = "0";
+
+  $("subEnd").value = "4";
+
+  $("addSubtitle").disabled = false;
+
+  updatePreview();
+
+  renderSubtitles();
+
+}
+
+$("newSubtitle").addEventListener("click", resetSubtitleForm);
+
+$("subMy").addEventListener("click", () => {
+
+  subtitleLang = "my";
+
+  $("subMy").classList.add("active");
+
+  $("subEn").classList.remove("active");
+
+  $("subEn").classList.add("secondary");
+
+  $("subMy").classList.remove("secondary");
+
+  renderSubtitles();
+
+});
+
+$("subEn").addEventListener("click", () => {
+
+  subtitleLang = "en";
+
+  $("subEn").classList.add("active");
+
+  $("subEn").classList.remove("secondary");
+
+  $("subMy").classList.remove("active");
+
+  $("subMy").classList.add("secondary");
+
+  renderSubtitles();
+
+});
+
+$("addSubtitle").addEventListener("click", () => {
+
+  const item = currentSubtitleFromForm();
+
+  if (!item) return;
+
+  item.id = nextId++;
+
+  subtitles.push(item);
+
+  subtitles.sort((a,b) => a.start - b.start);
+
+  setStatus(t("added"));
+
+  renderSubtitles();
+
+});
+
+$("updateSubtitle").addEventListener("click", () => {
+
+  if (selectedId === null) {
+
+    setStatus(t("noSelection"));
+
+    return;
+
+  }
+
+  const item = currentSubtitleFromForm();
+
+  if (!item) return;
+
+  const index = subtitles.findIndex(s => s.id === selectedId);
+
+  if (index < 0) return;
+
+  subtitles[index] = {...subtitles[index], ...item};
+
+  subtitles.sort((a,b) => a.start - b.start);
+
+  setStatus(t("updated"));
+
+  renderSubtitles();
+
+});
+
+function selectSubtitle(id) {
+
+  const item = subtitles.find(s => s.id === id);
+
+  if (!item) return;
+
+  selectedId = id;
+
+  subtitleLang = item.language;
+
+  $("subText").value = item.text;
+
+  $("subStart").value = item.start;
+
+  $("subEnd").value = item.end;
+
+  $("addSubtitle").disabled = true;
+
+  $("subMy").classList.toggle("active", subtitleLang === "my");
+
+  $("subEn").classList.toggle("active", subtitleLang === "en");
+
+  $("subMy").classList.toggle("secondary", subtitleLang !== "my");
+
+  $("subEn").classList.toggle("secondary", subtitleLang !== "en");
+
+  updatePreview();
+
+  renderSubtitles();
+
+  $("subText").focus();
+
+}
+
+function renderSubtitles() {
+
+  const list = $("subtitleList");
+
+  list.replaceChildren();
+
+  const visible = subtitles.filter(s => s.language === subtitleLang);
+
+  if (!visible.length) {
+
+    const p = document.createElement("p");
+
+    p.className = "small";
+
+    p.textContent = t("emptyList");
+
+    list.appendChild(p);
+
+    return;
+
+  }
+
+  visible.forEach((item, index) => {
+
+    const card = document.createElement("div");
+
+    card.className = "sub-item" + (selectedId === item.id ? " active" : "");
+
+    const head = document.createElement("div");
+
+    head.className = "sub-head";
+
+    const title = document.createElement("strong");
+
+    title.textContent = "#" + (index + 1);
+
+    const time = document.createElement("span");
+
+    time.className = "badge";
+
+    time.textContent = item.start + "s – " + item.end + "s";
+
+    const edit = document.createElement("button");
+
+    edit.type = "button";
+
+    edit.className = "secondary";
+
+    edit.textContent = t("edit");
+
+    edit.addEventListener("click", () => selectSubtitle(item.id));
+
+    head.append(title, time, edit);
+
+    const content = document.createElement("div");
+
+    content.textContent = item.text;
+
+    content.style.whiteSpace = "pre-wrap";
+
+    content.style.overflowWrap = "anywhere";
+
+    const actions = document.createElement("div");
+
+    actions.className = "sub-actions";
+
+    const remove = document.createElement("button");
+
+    remove.type = "button";
+
+    remove.className = "danger";
+
+    remove.textContent = t("delete");
+
+    remove.addEventListener("click", () => {
+
+      subtitles = subtitles.filter(s => s.id !== item.id);
+
+      if (selectedId === item.id) resetSubtitleForm();
+
+      else renderSubtitles();
+
+      setStatus(t("deleted"));
+
+    });
+
+    actions.appendChild(remove);
+
+    card.append(head, content, actions);
+
+    list.appendChild(card);
+
+  });
+
+}
+
+function srtTime(seconds) {
+
+  const ms = Math.round(seconds * 1000);
+
+  const h = Math.floor(ms / 3600000);
+
+  const m = Math.floor((ms % 3600000) / 60000);
+
+  const s = Math.floor((ms % 60000) / 1000);
+
+  const milli = ms % 1000;
+
+  return String(h).padStart(2,"0") + ":" +
+
+    String(m).padStart(2,"0") + ":" +
+
+    String(s).padStart(2,"0") + "," +
+
+    String(milli).padStart(3,"0");
+
+}
+
+$("exportSrt").addEventListener("click", () => {
+
+  const visible = subtitles
+
+    .filter(s => s.language === subtitleLang)
+
+    .slice()
+
+    .sort((a,b) => a.start - b.start);
+
+  if (!visible.length) {
+
+    setStatus(t("emptyList"));
+
+    return;
+
+  }
+
+  const content = visible.map((s,i) =>
+
+    (i + 1) + "\r\n" +
+
+    srtTime(s.start) + " --> " + srtTime(s.end) + "\r\n" +
+
+    s.text
+
+  ).join("\r\n\r\n") + "\r\n";
+
+  downloadFile(
+
+    "\uFEFF" + content,
+
+    subtitleLang === "my" ? "ego-recap-myanmar.srt" : "ego-recap-english.srt",
+
+    "application/x-subrip;charset=utf-8"
+
+  );
+
+});
+
+applyLanguage();
+
+</script>
+
+</body>
+
+</html>
